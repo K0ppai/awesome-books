@@ -1,55 +1,98 @@
+// Select the form element
 const form = document.querySelector('.form');
-const bookData = [];
+
+// Initialize the bookData array with saved data from local storage or an empty array
+const bookData = JSON.parse(localStorage.getItem('bookData')) || [];
+
+// Select the book list container element
 const ul = document.getElementById('book-list-container');
 
-// form.addEventListener('submit', addData);
-
+// Event listener for form submission
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  // console.log(title);
-  // console.log(author);
 
-  // create elements
+  // Get the input values for title and author
   const title = form.querySelector('input[placeholder="Title"]').value;
   const author = form.querySelector('input[placeholder="Author"]').value;
-  const li = document.createElement('li');
-  const titleSpan = document.createElement('span');
-  titleSpan.className = 'title';
-  const authorSpan = document.createElement('span');
-  authorSpan.className = 'author';
-  const removeBtn = document.createElement('button');
-  removeBtn.className = 'remove-btn';
 
-  // create text
-  titleSpan.innerText = title;
-  authorSpan.innerText = author;
-  removeBtn.innerText = 'Remove';
-  li.appendChild(titleSpan);
-  li.appendChild(authorSpan);
-  li.appendChild(removeBtn);
-  ul.appendChild(li);
-  // add data to array
-  function NewBookData(titleName, authorName) {
-    this.Title = titleName;
-    this.Author = authorName;
-  }
-  function addData() {
-    const newData = new NewBookData(title, author);
-    bookData.push(newData);
-  }
-  addData();
-  console.log(bookData);
-  // remove elements
+  // Create a new data object
+  const newData = {
+    Title: title,
+    Author: author
+  };
+
+  // Add the new data to the bookData array
+  bookData.push(newData);
+
+  // Save the updated bookData to local storage
+  saveDataToLocalStorage();
+
+  // Render the updated book list
+  renderBookList();
+
+  // Reset the form input fields
+  form.reset();
 });
+
+// Event listener for removing a book
 ul.addEventListener('click', (e) => {
-  // console.log(e.target.tagName === 'BUTTON');
-  const li = e.target.parentElement;
-  const nodeList = Array.from(ul.children);
-  const targetIndex = nodeList.indexOf(li);
-  const dataIndex = bookData.at(targetIndex);
   if (e.target.tagName === 'BUTTON') {
-    ul.removeChild(li);
-    bookData.splice(targetIndex, 1);
-    console.log(targetIndex, dataIndex, bookData);
+    // Get the parent li element of the clicked button
+    const li = e.target.parentElement;
+
+    // Find the index of the li element within the book list container
+    const index = Array.from(ul.children).indexOf(li);
+
+    // Remove the corresponding data object from the bookData array
+    bookData.splice(index, 1);
+
+    // Save the updated bookData to local storage
+    saveDataToLocalStorage();
+
+    // Render the updated book list
+    renderBookList();
   }
 });
+
+// Function to render the book list on the page
+function renderBookList() {
+  // Clear the existing book list
+  ul.innerHTML = '';
+
+  // Iterate over the bookData array and create list items for each book
+  for (const data of bookData) {
+    // Create li element
+    const li = document.createElement('li');
+
+    // Create title span element
+    const titleSpan = document.createElement('span');
+    titleSpan.className = 'title';
+    titleSpan.innerText = data.Title;
+
+    // Create author span element
+    const authorSpan = document.createElement('span');
+    authorSpan.className = 'author';
+    authorSpan.innerText = data.Author;
+
+    // Create remove button element
+    const removeBtn = document.createElement('button');
+    removeBtn.className = 'remove-btn';
+    removeBtn.innerText = 'Remove';
+
+    // Append the elements to the li element
+    li.appendChild(titleSpan);
+    li.appendChild(authorSpan);
+    li.appendChild(removeBtn);
+
+    // Append the li element to the book list container
+    ul.appendChild(li);
+  }
+}
+
+// Function to save the bookData to local storage
+function saveDataToLocalStorage() {
+  localStorage.setItem('bookData', JSON.stringify(bookData));
+}
+
+// Render the initial book list
+renderBookList();
