@@ -94,28 +94,27 @@ class BookListApp {
     this.bookSec.classList.remove('active');
     this.formSec.classList.remove('active');
     this.contactSec.classList.remove('active');
-    this.list.className.replace('text-dark', 'text-warning');
-    this.list.className.replace('text-warning', 'text-dark');
-    this.list.className.replace('text-warning', 'text-dark');
-    // console.log(this.list.className);
+    this.list.className = this.list.className.replace('text-dark', 'text-warning');
+    this.addForm.className = this.addForm.className.replace('text-warning', 'text-dark');
+    this.contact.className = this.contact.className.replace('text-warning', 'text-dark');
   }
 
   generateAddForm() {
     this.bookSec.classList.add('active');
     this.formSec.classList.add('active');
     this.contactSec.classList.remove('active');
-    this.list.className.replace('text-warning', 'text-dark');
-    this.list.className.replace('text-dark', 'text-warning');
-    this.list.className.replace('text-warning', 'text-dark');
+    this.list.className = this.list.className.replace('text-warning', 'text-dark');
+    this.addForm.className = this.addForm.className.replace('text-dark', 'text-warning');
+    this.contact.className = this.contact.className.replace('text-warning', 'text-dark');
   }
 
   generateContact() {
     this.bookSec.classList.add('active');
     this.formSec.classList.remove('active');
     this.contactSec.classList.add('active');
-    this.list.className.replace('text-warning', 'text-dark');
-    this.list.className.replace('text-warning', 'text-dark');
-    this.list.className.replace('text-dark', 'text-warning');
+    this.list.className = this.list.className.replace('text-warning', 'text-dark');
+    this.addForm.className = this.addForm.className.replace('text-warning', 'text-dark');
+    this.contact.className = this.contact.className.replace('text-dark', 'text-warning');
   }
 }
 

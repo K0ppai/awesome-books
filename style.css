@@ -10,9 +10,11 @@
 .nav-links {
   cursor: pointer;
 }
-/* .nav-links:hover {
-  color: red ;
-} */
+
+.nav-links:hover {
+  color: #ffc107 !important;
+}
+
 #book-list.active,
 #form,
 #contact {
@@ -25,12 +27,13 @@
   display: block;
 }
 
-#book-list-container{
+#book-list-container {
   height: 63.5vh;
   overflow-y: auto;
 }
+
 @media screen and (min-width: 1200px) {
-  #book-list-container{
+  #book-list-container {
     height: 67.5vh;
   }
 }
