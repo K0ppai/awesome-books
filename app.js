@@ -6,6 +6,7 @@ class BookListApp {
     this.list = document.querySelector('.list');
     this.addForm = document.querySelector('.add-form');
     this.contact = document.querySelector('.contact');
+    this.bookSec = document.getElementById('book-list');
 
     this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     this.ul.addEventListener('click', this.handleRemoveButtonClick.bind(this));
@@ -87,11 +88,16 @@ class BookListApp {
     this.saveDataToLocalStorage();
   }
 
+  addClassList(element) {
+    element.classList.add('active');
+  }
+
   generateBookList() {
     const bookSec = document.getElementById('book-list');
     const addForm = document.getElementById('form');
     const contact = document.getElementById('contact');
     bookSec.classList.add('active');
+    // this.addClassList(bookSec)
     addForm.classList.remove('active');
     contact.classList.remove('active');
   }
