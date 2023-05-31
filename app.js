@@ -3,11 +3,15 @@ class BookListApp {
     this.form = document.querySelector('.form');
     this.bookData = JSON.parse(localStorage.getItem('bookData')) || [];
     this.ul = document.getElementById('book-list-container');
-    this.navLinks = document.querySelectorAll('.nav-links');
+    this.list = document.querySelector('.list');
+    this.addForm = document.querySelector('.add-form');
+    this.contact = document.querySelector('.contact');
 
     this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     this.ul.addEventListener('click', this.handleRemoveButtonClick.bind(this));
-    this.navLinks.addEventListener('click', this.changeLinksColor);
+    this.list.addEventListener('click', this.generateBookList);
+    this.addForm.addEventListener('click', this.generateAddForm);
+    this.contact.addEventListener('click', this.generateContact);
     this.renderBookList();
   }
 
@@ -83,8 +87,31 @@ class BookListApp {
     this.saveDataToLocalStorage();
   }
 
-  changeLinksColor() {
-    this.target.style.color = 'red';
+  generateBookList() {
+    const bookSec = document.getElementById('book-list');
+    const addForm = document.getElementById('form');
+    const contact = document.getElementById('contact');
+    bookSec.classList.add('active');
+    addForm.classList.remove('active');
+    contact.classList.remove('active');
+  }
+
+  generateAddForm() {
+    const bookSec = document.getElementById('book-list');
+    const addForm = document.getElementById('form');
+    const contact = document.getElementById('contact');
+    bookSec.classList.remove('active');
+    addForm.classList.add('active');
+    contact.classList.remove('active');
+  }
+
+  generateContact() {
+    const bookSec = document.getElementById('book-list');
+    const addForm = document.getElementById('form');
+    const contact = document.getElementById('contact');
+    bookSec.classList.remove('active');
+    addForm.classList.remove('active');
+    contact.classList.add('active');
   }
 }
 

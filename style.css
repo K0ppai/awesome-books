@@ -1,15 +1,26 @@
-  @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   font-family: 'Comic Neue', cursive;
+
   /* list-style: none; */
   text-decoration: none !important;
 }
 
-#book-list{
+.nav-links {
+  cursor: pointer;
+}
+
+#book-list,
+#form,
+#contact {
   display: none;
 }
-#form{
-  display: none;
+
+#book-list.active,
+#form.active,
+#contact.active {
+  display: block;
 }
