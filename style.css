@@ -22,3 +22,8 @@
 #contact.active {
   display: block;
 }
+
+#book-list-container{
+  height: 65vh;
+  overflow-y: auto;
+}
