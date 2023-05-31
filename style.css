@@ -10,20 +10,27 @@
 .nav-links {
   cursor: pointer;
 }
-
-#book-list,
+/* .nav-links:hover {
+  color: red ;
+} */
+#book-list.active,
 #form,
 #contact {
   display: none;
 }
 
-#book-list.active,
+#book-list,
 #form.active,
 #contact.active {
   display: block;
 }
 
 #book-list-container{
-  height: 65vh;
+  height: 63.5vh;
   overflow-y: auto;
+}
+@media screen and (min-width: 1200px) {
+  #book-list-container{
+    height: 67.5vh;
+  }
 }
