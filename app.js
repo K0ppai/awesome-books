@@ -3,10 +3,11 @@ class BookListApp {
     this.form = document.querySelector('.form');
     this.bookData = JSON.parse(localStorage.getItem('bookData')) || [];
     this.ul = document.getElementById('book-list-container');
+    this.navLinks = document.querySelectorAll('.nav-links');
 
     this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     this.ul.addEventListener('click', this.handleRemoveButtonClick.bind(this));
-
+    this.navLinks.addEventListener('click', this.changeLinksColor);
     this.renderBookList();
   }
 
@@ -80,6 +81,10 @@ class BookListApp {
   removeBook(index) {
     this.bookData.splice(index, 1);
     this.saveDataToLocalStorage();
+  }
+
+  changeLinksColor() {
+    this.target.style.color = 'red';
   }
 }
 
