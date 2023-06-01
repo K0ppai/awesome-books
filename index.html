@@ -4,29 +4,56 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Awesome Books</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-</head>
+  </head>
 <body>
   <header>
-    <h1 class="text-center fw-bolder my-4">All awesome books</h1>
+    <nav class="container-fluid position-fixed top-0 p-0 bg-white">
+      <div class="row justify-content-between border align-items-center my-2 mx-3 border-3 rounded-2 border-dark">
+        <div class="col-3 p-1">
+          <span class="p-2 m-0 fs-5 fw-bold w-25" id="span">Awesome Books</span>
+        </div>
+        <div class="col-8">
+          <ul class="d-flex justify-content-end align-items-center m-0 list-unstyled">
+            <li class="px-3 fs-5 fw-bold nav-links list text-warning">List</li>
+            <li class="px-3 fs-5 fw-bold border border-3 border-dark border-top-0 border-bottom-0 add-form nav-links text-dark">Add new</li>
+            <li class="px-3 fs-5 fw-bold nav-links contact text-dark">Contact</li>
+          </ul>
+        </div>
+      </div>
+      <div></div>
+    </nav>
   </header>
-  <section id="book-list" class="container-fluid">
-    <ul id="book-list-container" class="p-0 border border-4 rounded-2 border-dark">
+  <section id="book-list" class="container-fluid mt-5 pt-3">
+    <h1 class="text-center fw-bolder my-4">All Awesome Books</h1>
+    <ul id="book-list-container" class="p-0 border border-3 rounded-2 border-dark">
 
     </ul>
   </section>
-  <form action="submit" class="form m-3">
-    <h1 class="text-center fs-4 fw-bold">Add a new book</h1>
+  <section id="contact">
+    <div class="container-fluid mt-5 pt-5 row justify-content-center">
+      <div class="col-8 d-flex flex-column align-items-center">
+        <h1 class="text-center pb-5">Contact Information</h1>
+        <p class="fs-5">Do you have any questions or you just want to say "Hello"?<br>You can reach out to us!</p>
+        <ul class="align-self-start ms-5 ps-5">
+          <li class="ms-5">Our email: <a href="mailto:awesomebooks@gmail.com">awesomebooks@gmail.com</a></li>
+          <li class="ms-5">Our phone number: 5451243345</li>
+          <li class="ms-5">Our address: Books Street, Bookshopville, United States</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <form action="submit" class="form mt-5 pt-5" id="form">
+    <h1 class="text-center mb-5">Add a new book</h1>
     <div class="container-fluid">
       <div class="row flex-column align-items-center">
-        <div class="col-md-3 d-flex flex-column">
-          <input class="mb-md-3 p-1 add-title rounded border border-3 border-dark" type="text" placeholder="Title" required>
-          <input class="mb-md-3 p-1 add-author rounded border border-3 border-dark" type="text" placeholder="Author" required>
+        <div class="col-md-4 d-flex flex-column">
+          <input class="mb-md-4 p-1 add-title rounded border border-3 border-dark" type="text" placeholder="Title" required>
+          <input class="mb-md-4 p-1 add-author rounded border border-3 border-dark" type="text" placeholder="Author" required>
           <button class="w-25 align-self-end add-btn fw-bold btn border-3 btn-outline-dark btn-sm" type="submit">Add</button>
         </div>
         <div class="col-2">
@@ -34,6 +61,11 @@
       </div>
     </div>
   </form>
+  <footer class="container-fluid position-fixed bottom-0 bg-white" id="footer">
+    <div class="border border-3 border-dark mx-2 my-1 rounded-2">
+      <p class="mb-0 py-1 px-4">&copy; K0ppai and Raphael Miyoyo. All Rights Reserved.</p>
+    </div>
+  </footer>
   <script src="app.js"></script>
 </body>
 </html>

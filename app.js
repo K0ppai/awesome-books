@@ -3,10 +3,18 @@ class BookListApp {
     this.form = document.querySelector('.form');
     this.bookData = JSON.parse(localStorage.getItem('bookData')) || [];
     this.ul = document.getElementById('book-list-container');
+    this.list = document.querySelector('.list');
+    this.addForm = document.querySelector('.add-form');
+    this.contact = document.querySelector('.contact');
+    this.bookSec = document.getElementById('book-list');
+    this.formSec = document.getElementById('form');
+    this.contactSec = document.getElementById('contact');
 
     this.form.addEventListener('submit', this.handleFormSubmit.bind(this));
     this.ul.addEventListener('click', this.handleRemoveButtonClick.bind(this));
-
+    this.list.addEventListener('click', this.generateBookList.bind(this));
+    this.addForm.addEventListener('click', this.generateAddForm.bind(this));
+    this.contact.addEventListener('click', this.generateContact.bind(this));
     this.renderBookList();
   }
 
@@ -80,6 +88,33 @@ class BookListApp {
   removeBook(index) {
     this.bookData.splice(index, 1);
     this.saveDataToLocalStorage();
+  }
+
+  generateBookList() {
+    this.bookSec.classList.remove('active');
+    this.formSec.classList.remove('active');
+    this.contactSec.classList.remove('active');
+    this.list.className = this.list.className.replace('text-dark', 'text-warning');
+    this.addForm.className = this.addForm.className.replace('text-warning', 'text-dark');
+    this.contact.className = this.contact.className.replace('text-warning', 'text-dark');
+  }
+
+  generateAddForm() {
+    this.bookSec.classList.add('active');
+    this.formSec.classList.add('active');
+    this.contactSec.classList.remove('active');
+    this.list.className = this.list.className.replace('text-warning', 'text-dark');
+    this.addForm.className = this.addForm.className.replace('text-dark', 'text-warning');
+    this.contact.className = this.contact.className.replace('text-warning', 'text-dark');
+  }
+
+  generateContact() {
+    this.bookSec.classList.add('active');
+    this.formSec.classList.remove('active');
+    this.contactSec.classList.add('active');
+    this.list.className = this.list.className.replace('text-warning', 'text-dark');
+    this.addForm.className = this.addForm.className.replace('text-warning', 'text-dark');
+    this.contact.className = this.contact.className.replace('text-dark', 'text-warning');
   }
 }
 
