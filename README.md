@@ -66,7 +66,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- The live demo is coming soon.
+- Click here for [live](https://k0ppai.github.io/awesome-books/) demo.
 
 <!-- - You can find the website [here](https://ochiengsteven.github.io/awesome-books/) -->
 
